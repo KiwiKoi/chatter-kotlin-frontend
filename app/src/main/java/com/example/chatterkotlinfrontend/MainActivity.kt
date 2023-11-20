@@ -4,18 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import com.example.chatterkotlinfrontend.ui.theme.ChatterKotlinFrontendTheme
 
 class MainActivity : ComponentActivity() {
@@ -76,27 +72,4 @@ fun AppScaffold(){
                 PostList()
             }
     }
-}
-
-@Composable
-fun PostCard(text: String){
-    Card(Modifier.size(width = 300.dp, height = 300.dp).padding(16.dp)){
-        Text(text = text,
-            modifier = Modifier.padding(16.dp))
-    }
-}
-
-@Composable
-fun PostList(){
-    Column(
-        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        PostCard("Card 0")
-        PostCard("Card 1")
-        PostCard("Card 2")
-        PostCard("Card 3")
-    }
-
 }
