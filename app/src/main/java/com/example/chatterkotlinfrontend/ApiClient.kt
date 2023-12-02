@@ -6,19 +6,20 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.request.get
 import io.ktor.client.statement.*
+import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 
 object ApiClient {
 
-    private const val BASE_URL = "http://localhost:8080/";
+    private const val BASE_URL = "http://192.168.1.23:8080/";
 
-    private val httpClient = HttpClient {
+    private val client = HttpClient {
         install(ContentNegotiation){
             json()
         }
     }
 
     suspend fun getPosts(): List<Post> {
-        return httpClient.request(BASE_URL).body()
+        return client.request(BASE_URL + "posts").body()
     }
 }
