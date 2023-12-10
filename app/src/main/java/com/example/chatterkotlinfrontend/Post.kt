@@ -10,9 +10,9 @@ data class Post(
     val title: String,
     val body: String,
     val image: String?,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime,
-    val published: Boolean,
+    val createdAt: LocalDateTime?,
+    val updatedAt: LocalDateTime?,
+    val published: Boolean?,
     val author: User?,
-    val user_id: String,
+    val user_id: String?,
 )

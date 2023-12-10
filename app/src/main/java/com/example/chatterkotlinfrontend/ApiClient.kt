@@ -8,6 +8,8 @@ import io.ktor.client.request.get
 import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.JsonArray
+import kotlinx.serialization.json.JsonObject
 
 object ApiClient {
 
@@ -19,7 +21,7 @@ object ApiClient {
         }
     }
 
-    suspend fun getPosts(): List<Post> {
+    suspend fun getPosts() {
         return client.request(BASE_URL + "posts").body()
     }
 }

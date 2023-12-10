@@ -23,10 +23,12 @@ fun PostCard(text: String){
 
 @Composable
 fun PostList(){
-    var posts by remember { mutableStateOf(emptyList<Post>()) }
-    LaunchedEffect(Unit) {
-        posts = ApiClient.getPosts()
-    }
+    val posts =
+        listOf(
+            Post("001", "article 1", "TESTING", "", null, null, false, null, ""),
+            Post("002", "article 2", "TESTING", "", null, null, false, null, ""),
+            Post("003", "article 3", "TESTING", "", null, null, false, null, "")
+        );
 
     LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -34,7 +36,6 @@ fun PostList(){
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-
             items(posts) { post ->
                 PostCard(post.title)
             }
